@@ -285,4 +285,4 @@ export const getServiceList = () => {
 
 export const getParkServices = () => {
   return database.parkServices.map(parkService => ({...parkService}))
-}
+}  
