@@ -1,6 +1,6 @@
-import { Guests } from "./guestList.js"
-import { Parks } from "./parkList.js"
-import { Services } from "./serviceList.js"
+import { guestsHTML } from "./guestList.js"
+import { parksHTML } from "./parkList.js"
+import { servicesHTML } from "./serviceList.js"
 
 
 const mainContainer = document.querySelector("#container")
@@ -11,15 +11,15 @@ const applicationHTML = `
 <article class="details">
     <section class="detail--column list details__guests">
         <h2>Guests</h2>
-        ${Guests()}
+        ${guestsHTML()}
     </section>
     <section class="detail--column list details__parks">
         <h2>Parks</h2>
-        ${Parks()}
+        ${parksHTML()}
     </section>
     <section class="detail--column list details__services">
         <h2>Services</h2>
-        ${Services()}
+        ${servicesHTML()}
     </section>
 `
 

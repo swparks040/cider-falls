@@ -2,7 +2,7 @@ import { getParkList } from "./database.js"
 
 const parks = getParkList()
 
-export const Parks = () => {
+export const parksHTML = () => {
     let html = "<ul>"
 
     for (const park of parks) {
