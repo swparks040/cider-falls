@@ -2,24 +2,29 @@ import { guestsHTML } from "./guestList.js"
 import { parksHTML } from "./parkList.js"
 import { servicesHTML } from "./serviceList.js"
 
+// const guestList = document.querySelector('#guest-list');
+// const parkList = document.querySelector('#park-list');
+// const serviceList = document.querySelector('#service-list')
+
+
+
 
 const mainContainer = document.querySelector("#container")
 
+
 const applicationHTML = `
-<h1>Cider Falls</h1>
-<h2>Rivers and Trails</h2>
-<article class="details">
-    <section class="detail--column list details__guests">
-        <h2>Guests</h2>
+
+    <section id="service-list">
+        <h2>List of Cider Falls Services</h2>
+        ${servicesHTML()}
+    </section>
+    <section id="guest-list">
+        <h2>Distinguished Guests</h2>
         ${guestsHTML()}
     </section>
-    <section class="detail--column list details__parks">
-        <h2>Parks</h2>
+    <section id="park-list">
+        <h2>Park Sections</h2>
         ${parksHTML()}
-    </section>
-    <section class="detail--column list details__services">
-        <h2>Services</h2>
-        ${servicesHTML()}
     </section>
 `
 

@@ -1,5 +1,5 @@
-import { getServiceList, getParkServices } from "./database.js"
-import { getParkList } from "./parkList.js"
+import { getServiceList, getParkServices, getParkList } from "./database.js"
+//import { getParkList } from "./parkList.js"
 
 /*1. First, declare a variable of "services" and set it equal to the "getServiceList" database export function. This will allow iteration through all services in order to render HTML. 
 
@@ -16,45 +16,39 @@ const parkServices = getParkServices()
 
 
 export const servicesHTML = () => {
-    let html = "<ul>"
+    let html = `<ul>`
 
     for (const service of services) {
         html += `<li id="service--${service.id}">${service.name}</li>`
     }
 
-    html += "</ul>"
+    html += `</ul>`
 
     return html
 }
 const findParks = (service) => {
-    const foundParksArray = []
+    let foundParksString = ""
     for (const parkService of parkServices) {
-        if (service.id === parkServices.serviceId)
+        if (service.id === parkService.serviceId)
         for (const park of parks)  {
-            if (park.id === parkServices.parkId)
-            foundParksArray.push(park.name)
+            if (park.id === parkService.parkId)
+            foundParksString += `${service.name} service is found in ${park.name}.`
             }
-    } 
-}
+          }
+          return foundParksString
+        }
+
 
 document.addEventListener("click", (clickEvent) => {
     const itemClicked = clickEvent.target;
     if (itemClicked.id.startsWith("service")) {
       const [, serviceId] = itemClicked.id.split("--");
-      
       for (const service of services) {
-        
-        if (service.id === parseInt(serviceId)) {
-          
-// calling function to find all parks associated with this service. 
-
-          for (const parkService of parkServices) {
-            
-            if (service.id === parkService.serviceId) {
-              window.alert(`${service.name} is available in ${park.name}`);
-            }
-          }
+        if (service.id === parseInt(serviceId)) { 
+          const foundParksString = findParks(service)
+          window.alert(foundParksString)
         }
       }
     }
-  });
+  }
+  );
